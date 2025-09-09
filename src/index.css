@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - warm, creamy background */
+    --background: 42 15% 97%;
+    --foreground: 25 25% 15%;
+
+    /* Card colors - warm whites */
+    --card: 42 20% 99%;
+    --card-foreground: 25 25% 15%;
+
+    /* Popover colors */
+    --popover: 42 20% 99%;
+    --popover-foreground: 25 25% 15%;
+
+    /* Primary - rich coffee brown */
+    --primary: 25 35% 25%;
+    --primary-foreground: 42 20% 98%;
+
+    /* Secondary - warm cream */
+    --secondary: 42 30% 92%;
+    --secondary-foreground: 25 35% 25%;
+
+    /* Muted colors */
+    --muted: 42 25% 94%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Accent - warm orange */
+    --accent: 30 85% 65%;
+    --accent-foreground: 25 35% 25%;
+
+    /* Destructive */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 42 20% 98%;
+
+    /* Borders and inputs */
+    --border: 42 20% 88%;
+    --input: 42 20% 88%;
+    --ring: 30 85% 65%;
+
+    /* Enhanced design tokens */
+    --radius: 0.75rem;
+
+    /* Coffee-inspired gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(42 30% 92%), hsl(30 85% 65%));
+    --gradient-coffee: linear-gradient(135deg, hsl(25 35% 25%), hsl(30 45% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(25 35% 25%) 0%, hsl(30 45% 35%) 50%, hsl(30 85% 65%) 100%);
+
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -5px hsl(25 35% 25% / 0.1);
+    --shadow-coffee: 0 20px 40px -10px hsl(25 35% 25% / 0.2);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Typography scale */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - deep coffee tones */
+    --background: 25 25% 8%;
+    --foreground: 42 15% 95%;
+
+    --card: 25 25% 12%;
+    --card-foreground: 42 15% 95%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 42 15% 95%;
+
+    --primary: 30 85% 65%;
+    --primary-foreground: 25 25% 8%;
+
+    --secondary: 25 20% 18%;
+    --secondary-foreground: 42 15% 95%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 42 10% 65%;
+
+    --accent: 30 85% 65%;
+    --accent-foreground: 25 25% 8%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 42 15% 95%;
+
+    --border: 25 20% 18%;
+    --input: 25 20% 18%;
+    --ring: 30 85% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground border border-border px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .section-padding {
+    @apply px-6 py-16 lg:px-8 lg:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .card-warm {
+    @apply bg-card rounded-2xl p-6 shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+}
